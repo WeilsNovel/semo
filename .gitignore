@@ -1,0 +1,35 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+build/
+unpackage/
+*.tsbuildinfo
+
+# Uni-app / 小程序
+miniprogram_npm/
+.swc/
+
+# NestJS
+*.log
+
+# 环境与密钥（绝不入仓）
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+!.vscode/settings.json
+.DS_Store
+
+# 测试与覆盖率
+coverage/
+.nyc_output/
+
+# 临时
+*.local
+.cache/
