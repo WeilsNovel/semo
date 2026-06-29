@@ -1,0 +1,15 @@
+{
+  "name": "@semo/ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "semo AI Prompt模板与类型设计层（运行时调用归 packages/server/src/ai）",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@semo/shared": "workspace:*"
+  }
+}

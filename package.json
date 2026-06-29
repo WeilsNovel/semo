@@ -1,0 +1,24 @@
+{
+  "name": "semo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "semo - 健康AI拍照识别/记录/打卡（多端协同 Monorepo）",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "dev:mp": "pnpm --filter @semo/mp dev",
+    "dev:server": "pnpm --filter @semo/server start:dev",
+    "build:shared": "pnpm --filter @semo/shared build",
+    "build:ai": "pnpm --filter @semo/ai build",
+    "build:mp": "pnpm --filter @semo/mp build",
+    "build:server": "pnpm --filter @semo/server build",
+    "build": "pnpm -r --filter=./packages/shared --filter=./packages/ai build && pnpm -r --filter=./packages/server --filter=./packages/mp build",
+    "lint": "pnpm -r --parallel lint",
+    "typecheck": "pnpm -r --parallel typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
