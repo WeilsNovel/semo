@@ -50,6 +50,9 @@ export const SIZE_CONFIG = {
 /** 请求超时（ms） */
 export const REQUEST_TIMEOUT = 15000;
 
+/** Mock 模拟网络延迟（ms） - 仅 useMock=true 时生效 */
+export const MOCK_DELAY = 300;
+
 /** 餐次文案映射 */
 export const MEAL_TYPE_TEXT_MAP: Record<number, string> = {
   [MEAL_TYPE.BREAKFAST]: '早餐',
@@ -76,3 +79,11 @@ export const TAB_BAR_LIST = [
   { pagePath: 'pages/plan/index', text: '计划', iconPath: 'static/tab/plan.png', selectedIconPath: 'static/tab/plan-active.png' },
   { pagePath: 'pages/mine/index', text: '我的', iconPath: 'static/tab/mine.png', selectedIconPath: 'static/tab/mine-active.png' },
 ] as const;
+
+/** 页面路径集中映射 - uni.navigateTo / switchTab 统一引用，禁止散落字符串 */
+export const PAGE_PATH_MAP = {
+  record: '/pages/record/index',
+  stats: '/pages/stats/index',
+  plan: '/pages/plan/index',
+  mine: '/pages/mine/index',
+} as const;
