@@ -10,7 +10,9 @@
     "emitDecoratorMetadata": true,
     "declaration": false,
     "declarationMap": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "ignoreDeprecations": "5.0",
+    "strictPropertyInitialization": false
   },
   "include": ["src/**/*"]
 }

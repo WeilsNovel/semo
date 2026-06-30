@@ -16,7 +16,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
 
     let status = HttpStatus.INTERNAL_SERVER_ERROR;
-    let code = ERROR_CODE.SERVER_ERROR;
+    let code: number = ERROR_CODE.SERVER_ERROR;
     let message = '服务器异常，请稍后重试';
 
     if (exception instanceof HttpException) {

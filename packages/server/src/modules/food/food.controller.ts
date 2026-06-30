@@ -1,15 +1,20 @@
 /**
- * 食物模块 controller - 占位骨架
- * 约束：禁止返回裸数据，统一经 ResponseInterceptor 输出 BaseApiResponse
+ * 食物 controller - POST /food/recognize（需鉴权）
+ * 约束：仅识别不落库；直接返回 data，由 ResponseInterceptor 包裹
  */
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { FoodService } from './food.service';
 import { RecognizeFoodDto } from './dto/recognize-food.dto';
+import { JwtAuthGuard, CurrentUser } from '../../core';
+import type { AuthedUser } from '../../types';
 
 @Controller('food')
 export class FoodController {
+  constructor(private readonly foodService: FoodService) {}
+
   @Post('recognize')
-  async recognize(@Body() _dto: RecognizeFoodDto): Promise<{ todo: string }> {
-    // TODO(技术债): 调用 AI 运行时识别食物，落库为打卡记录
-    return { todo: 'food recognize not implemented yet' };
+  @UseGuards(JwtAuthGuard)
+  async recognize(@Body() dto: RecognizeFoodDto, @CurrentUser() _user: AuthedUser) {
+    return this.foodService.recognize(dto);
   }
 }

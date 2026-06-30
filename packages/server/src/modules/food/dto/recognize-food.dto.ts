@@ -1,20 +1,22 @@
 /**
- * 食物识别 DTO - 字段必须与 @semo/shared 的 FoodRecognizeRequest 完全一致
- * 约束：字段名/类型/可选性对齐，禁止前端单独定义
+ * 食物识别 DTO - 字段对齐 shared FoodRecognizeRequest
+ * 约束：imageType 限定 base64/url；mealType 可选数字（MEAL_TYPE）
  */
-import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { IsIn, IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import type { FoodRecognizeRequest } from '@semo/shared';
 
-export class RecognizeFoodDto {
-  /** 图片base64 或 URL */
+export class RecognizeFoodDto implements FoodRecognizeRequest {
+  /** 图片base64（不含 data: 前缀）或图片URL */
   @IsString()
+  @IsNotEmpty()
   image: string;
 
   /** 图片来源标识 */
-  @IsEnum(['base64', 'url'])
+  @IsIn(['base64', 'url'])
   imageType: 'base64' | 'url';
 
-  /** 餐次（可选） */
+  /** 餐次（可选，MEAL_TYPE 数值，传给 AI 作分量上下文） */
   @IsOptional()
-  @IsString()
+  @IsInt()
   mealType?: number;
 }
