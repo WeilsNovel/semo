@@ -1,5 +1,6 @@
 import type { MEAL_TYPE, RECORD_STATUS } from '../constants/business';
 import type { FoodRecognizeItem } from './food';
+import type { PageQuery } from './api';
 
 /** 打卡记录实体 - 前后端共享 */
 export interface RecordItem {
@@ -21,8 +22,8 @@ export interface RecordItem {
   updatedAt: string;
 }
 
-/** 打卡记录列表查询入参 */
-export interface RecordListRequest {
+/** 打卡记录列表查询入参（分页 + 日期/餐次筛选） */
+export interface RecordListRequest extends PageQuery {
   /** 日期范围起 YYYY-MM-DD */
   startDate?: string;
   /** 日期范围止 YYYY-MM-DD */
@@ -51,4 +52,10 @@ export interface DailyStatResponse {
   recordCount: number;
   /** 三餐分布 */
   mealBreakdown: Record<string, number>;
+}
+
+/** 当日统计查询入参 */
+export interface DailyStatRequest {
+  /** 查询日期 YYYY-MM-DD（默认当日，由服务端兜底） */
+  date?: string;
 }

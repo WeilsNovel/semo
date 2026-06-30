@@ -5,3 +5,4 @@ export * from './food';
 export * from './record';
 export * from './plan';
 export * from './ai';
+export * from './upload';

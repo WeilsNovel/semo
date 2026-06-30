@@ -45,3 +45,11 @@ export const FOOD_CATEGORY = {
   BEVERAGE: 6,
   OTHER: 99,
 } as const;
+
+/** 图片上传场景 */
+export const UPLOAD_SCENE = {
+  /** 食物打卡图 */
+  FOOD: 'food',
+  /** 用户头像 */
+  AVATAR: 'avatar',
+} as const;
