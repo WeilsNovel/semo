@@ -1,0 +1,30 @@
+{
+  "name": "semo",
+  "appid": "PLACEHOLDER_MP_APPID",
+  "description": "健康AI拍照识别/记录/打卡小程序",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "PLACEHOLDER_MP_APPID",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "postcss": true,
+      "minified": true
+    },
+    "usingComponents": true,
+    "permission": {
+      "scope.userLocation": {
+        "desc": "您的位置信息将用于食物打卡场景化推荐"
+      }
+    }
+  },
+  "h5": {
+    "title": "semo",
+    "router": {
+      "mode": "hash",
+      "base": "./"
+    }
+  }
+}
